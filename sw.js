@@ -1,5 +1,5 @@
 // Service Worker – Stradario di Padova
-const CACHE_NAME = 'stradario-pd-v1';
+const CACHE_NAME = 'stradario-pd-v2';
 const ASSETS = [
   './index.html',
   './manifest.json',
