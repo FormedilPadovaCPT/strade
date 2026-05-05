@@ -245,16 +245,18 @@
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 13px 14px;
-    font-size: 1rem;
+    padding: 11px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
-    flex-shrink: 0;
     -webkit-appearance: none;
     display: flex;
     align-items: center;
-    gap: 5px;
-    white-space: nowrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 10px;
   }
   .btn-gps:hover { background: #444a53; }
   .btn-gps:active { transform: scale(0.96); }
@@ -619,16 +621,16 @@
         <div id="autocomplete" role="listbox" aria-label="Suggerimenti strade"></div>
       </div>
       <button class="btn-clear" id="btnClear" title="Cancella" aria-label="Cancella ricerca">✕</button>
-      <button class="btn-gps" id="btnGps" title="Trova il mio quartiere" aria-label="Posizione GPS">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        <span id="btnGpsLabel">GPS</span>
-      </button>
       <button class="btn-cerca" id="btnCerca" aria-label="Cerca">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
         Cerca
       </button>
     </div>
     <div class="search-hint">Digita il nome della via senza il prefisso (Via, Viale, Corso…). La ricerca è parziale.</div>
+    <button class="btn-gps" id="btnGps" title="Trova il mio quartiere" aria-label="Posizione GPS">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <span id="btnGpsLabel">📍 Mostra il mio quartiere GPS</span>
+    </button>
   </div>
 
   <div id="gpsResult"></div>
@@ -1028,7 +1030,7 @@ btnGps.addEventListener('click', () => {
       const msgs = {
         1: 'Permesso negato. Abilita la geolocalizzazione per questa pagina.',
         2: 'Posizione non disponibile. Riprova più tardi.',
-        3: 'Timeout. Riprova in un'area con segnale migliore.'
+        3: 'Timeout. Riprova in un’area con segnale migliore.'
       };
       showGpsError(msgs[err.code] || 'Errore sconosciuto.');
     },
