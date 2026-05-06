@@ -1040,72 +1040,14 @@ btnGps.addEventListener('click', () => {
 
 // ── SERVICE WORKER ────────────────────────────────────────
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', async () => {
-    // Unregister any old service workers to force cache refresh
-    const registrations = await navigator.serviceWorker.getRegistrations();
-    for (const reg of registrations) {
-      const sw = reg.active || reg.waiting || reg.installing;
-      if (sw) {
-        // Check if it's an old cache version
-        const cacheKeys = await caches.keys();
-        const hasOldCache = cacheKeys.some(k => k !== 'stradario-v20240328' && k.startsWith('stradario-'));
-        if (hasOldCache) {
-          console.log('Rilevata cache obsoleta, aggiornamento forzato…');
-          await reg.unregister();
-          // Clear old caches
-          for (const key of cacheKeys) {
-            if (key !== 'stradario-v20240328') await caches.delete(key);
-          }
-          // Reload to get fresh content
-          window.location.reload(true);
-          return;
-        }
-      }
-    }
-    
-    // Register SW with inline blob to avoid external file dependency
-    const swCode = `
-const CACHE = 'stradario-v20240328';
-const ASSETS = ['./'];
-
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())
-  );
-});
-
-self.addEventListener('activate', e => {
-  e.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
-  );
-});
-
-self.addEventListener('fetch', e => {
-  if (e.request.method !== 'GET') return;
-  e.respondWith(
-    caches.open(CACHE).then(async cache => {
-      const cached = await cache.match(e.request);
-      const fetchPromise = fetch(e.request).then(resp => {
-        if (resp && resp.status === 200) cache.put(e.request, resp.clone());
-        return resp;
-      }).catch(() => cached);
-      return cached || fetchPromise;
-    })
-  );
-});
-`;
-
-    try {
-      const blob = new Blob([swCode], {type: 'application/javascript'});
-      const swUrl = URL.createObjectURL(blob);
-      const reg = await navigator.serviceWorker.register(swUrl);
-      console.log('SW v20240328 registered');
-    } catch(err) {
-      // Fallback: register external sw.js if blob URL fails (e.g. strict CSP)
-      navigator.serviceWorker.register('./sw.js').catch(() => {});
-    }
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => {
+        console.log('SW registered, scope:', reg.scope);
+        // Check for updates on every load
+        reg.update();
+      })
+      .catch(err => console.warn('SW error:', err));
   });
 }
 
