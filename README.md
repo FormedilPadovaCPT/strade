@@ -6,7 +6,7 @@ Web app progressiva (PWA) per la ricerca del quartiere di una strada di Padova.
 
 ## Caratteristiche
 
-- 📍 **2.122 strade** – Registro Toponomastico ufficiale (Ufficio Toponomastica, 28 marzo 2024)
+- 📍 **2.095 strade** – Registro Toponomastico ufficiale (Ufficio Toponomastica, 19 aprile 2019)
 - ⚡ **Ricerca istantanea** con autocomplete mentre si digita
 - 🎨 **Colori per quartiere** – 6 quartieri di Padova distinti visivamente
 - 📱 **PWA installabile** – funziona come app nativa su Android, iOS e desktop
@@ -46,5 +46,5 @@ Web app progressiva (PWA) per la ricerca del quartiere di una strada di Padova.
 ## Fonte dati
 
 Registro delle Strade di Padova  
-Settore Cultura e Turismo – Ufficio Toponomastica  
-Edizione aggiornata al **28 marzo 2024**
+Settore Attività Culturali – Ufficio Toponomastica  
+Edizione aggiornata al **18 aprile 2019**
