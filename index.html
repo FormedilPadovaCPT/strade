@@ -859,11 +859,20 @@ const QUARTIERE_ZONES = [
     id: '1',
     name: 'Quartiere 1 - Centro',
     color: '#E7500F',
-    // Simplified polygon: Centro storico dentro le mura
     poly: [
-      [45.416, 11.862], [45.418, 11.876], [45.412, 11.885],
-      [45.405, 11.882], [45.399, 11.876], [45.400, 11.862],
-      [45.404, 11.857], [45.411, 11.857]
+      [45.418,11.8555],
+      [45.4218,11.86],
+      [45.422,11.87],
+      [45.42,11.878],
+      [45.416,11.887],
+      [45.41,11.89],
+      [45.405,11.887],
+      [45.401,11.884],
+      [45.399,11.878],
+      [45.4,11.868],
+      [45.402,11.859],
+      [45.408,11.853],
+      [45.413,11.852]
     ]
   },
   {
@@ -871,9 +880,20 @@ const QUARTIERE_ZONES = [
     name: 'Quartiere 2 - Nord',
     color: '#2E86AB',
     poly: [
-      [45.418, 11.857], [45.418, 11.876], [45.425, 11.880],
-      [45.440, 11.872], [45.446, 11.858], [45.440, 11.840],
-      [45.428, 11.835], [45.420, 11.840]
+      [45.418,11.8555],
+      [45.422,11.87],
+      [45.42,11.878],
+      [45.426,11.883],
+      [45.434,11.882],
+      [45.45,11.878],
+      [45.45,11.86],
+      [45.448,11.845],
+      [45.438,11.838],
+      [45.428,11.842],
+      [45.42,11.846],
+      [45.413,11.852],
+      [45.408,11.853],
+      [45.418,11.8555]
     ]
   },
   {
@@ -881,9 +901,19 @@ const QUARTIERE_ZONES = [
     name: 'Quartiere 3 - Est',
     color: '#95C22F',
     poly: [
-      [45.418, 11.876], [45.412, 11.885], [45.416, 11.900],
-      [45.425, 11.910], [45.440, 11.905], [45.446, 11.882],
-      [45.440, 11.872], [45.425, 11.880]
+      [45.42,11.878],
+      [45.426,11.883],
+      [45.434,11.882],
+      [45.44,11.89],
+      [45.442,11.91],
+      [45.435,11.93],
+      [45.42,11.935],
+      [45.41,11.93],
+      [45.4,11.92],
+      [45.405,11.887],
+      [45.41,11.89],
+      [45.416,11.887],
+      [45.42,11.878]
     ]
   },
   {
@@ -891,9 +921,18 @@ const QUARTIERE_ZONES = [
     name: 'Quartiere 4 - Sud - Est',
     color: '#565C66',
     poly: [
-      [45.412, 11.885], [45.405, 11.882], [45.399, 11.876],
-      [45.393, 11.880], [45.388, 11.893], [45.390, 11.910],
-      [45.400, 11.918], [45.416, 11.910], [45.416, 11.900]
+      [45.405,11.887],
+      [45.4,11.92],
+      [45.41,11.93],
+      [45.4,11.94],
+      [45.385,11.93],
+      [45.375,11.91],
+      [45.378,11.89],
+      [45.385,11.88],
+      [45.395,11.876],
+      [45.399,11.878],
+      [45.401,11.884],
+      [45.405,11.887]
     ]
   },
   {
@@ -901,9 +940,18 @@ const QUARTIERE_ZONES = [
     name: 'Quartiere 5 - Sud - Ovest',
     color: '#B5541A',
     poly: [
-      [45.399, 11.876], [45.400, 11.862], [45.396, 11.848],
-      [45.388, 11.840], [45.380, 11.845], [45.376, 11.858],
-      [45.380, 11.875], [45.388, 11.883], [45.393, 11.880]
+      [45.4,11.868],
+      [45.399,11.878],
+      [45.395,11.876],
+      [45.385,11.88],
+      [45.375,11.87],
+      [45.368,11.86],
+      [45.37,11.845],
+      [45.38,11.835],
+      [45.39,11.838],
+      [45.4,11.845],
+      [45.402,11.859],
+      [45.4,11.868]
     ]
   },
   {
@@ -911,12 +959,23 @@ const QUARTIERE_ZONES = [
     name: 'Quartiere 6 - Ovest',
     color: '#6A5ACD',
     poly: [
-      [45.400, 11.862], [45.404, 11.857], [45.411, 11.857],
-      [45.418, 11.857], [45.420, 11.840], [45.416, 11.825],
-      [45.404, 11.820], [45.392, 11.825], [45.384, 11.835],
-      [45.380, 11.845], [45.388, 11.840], [45.396, 11.848]
+      [45.408,11.853],
+      [45.402,11.859],
+      [45.4,11.845],
+      [45.39,11.838],
+      [45.38,11.835],
+      [45.37,11.845],
+      [45.365,11.835],
+      [45.37,11.82],
+      [45.385,11.815],
+      [45.4,11.82],
+      [45.415,11.83],
+      [45.428,11.842],
+      [45.42,11.846],
+      [45.413,11.852],
+      [45.408,11.853]
     ]
-  }
+  },
 ];
 
 function pointInPolygon(lat, lng, poly) {
@@ -978,7 +1037,7 @@ function showGpsResult(lat, lng, quartiere) {
             <span class="gps-big-num">${quartiere.id}</span>${quartiere.name}
           </span>
         </div>
-        <div class="gps-disclaimer">⚠️ Stima basata su poligoni approssimativi. Per i confini ufficiali consultare il sito del Comune di Padova.</div>
+        <div class="gps-disclaimer">⚠️ Posizione stimata. Per i confini esatti consultare il sito del Comune di Padova.</div>
       </div>
     </div>`;
   btnGps.classList.remove('loading');
@@ -1040,14 +1099,72 @@ btnGps.addEventListener('click', () => {
 
 // ── SERVICE WORKER ────────────────────────────────────────
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => {
-        console.log('SW registered, scope:', reg.scope);
-        // Check for updates on every load
-        reg.update();
-      })
-      .catch(err => console.warn('SW error:', err));
+  window.addEventListener('load', async () => {
+    // Unregister any old service workers to force cache refresh
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    for (const reg of registrations) {
+      const sw = reg.active || reg.waiting || reg.installing;
+      if (sw) {
+        // Check if it's an old cache version
+        const cacheKeys = await caches.keys();
+        const hasOldCache = cacheKeys.some(k => k !== 'stradario-v20240328' && k.startsWith('stradario-'));
+        if (hasOldCache) {
+          console.log('Rilevata cache obsoleta, aggiornamento forzato…');
+          await reg.unregister();
+          // Clear old caches
+          for (const key of cacheKeys) {
+            if (key !== 'stradario-v20240328') await caches.delete(key);
+          }
+          // Reload to get fresh content
+          window.location.reload(true);
+          return;
+        }
+      }
+    }
+    
+    // Register SW with inline blob to avoid external file dependency
+    const swCode = `
+const CACHE = 'stradario-v20240328';
+const ASSETS = ['./'];
+
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', e => {
+  if (e.request.method !== 'GET') return;
+  e.respondWith(
+    caches.open(CACHE).then(async cache => {
+      const cached = await cache.match(e.request);
+      const fetchPromise = fetch(e.request).then(resp => {
+        if (resp && resp.status === 200) cache.put(e.request, resp.clone());
+        return resp;
+      }).catch(() => cached);
+      return cached || fetchPromise;
+    })
+  );
+});
+`;
+
+    try {
+      const blob = new Blob([swCode], {type: 'application/javascript'});
+      const swUrl = URL.createObjectURL(blob);
+      const reg = await navigator.serviceWorker.register(swUrl);
+      console.log('SW v20240328 registered');
+    } catch(err) {
+      // Fallback: register external sw.js if blob URL fails (e.g. strict CSP)
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
   });
 }
 
